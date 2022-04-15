@@ -3,13 +3,14 @@
 <html>
 	<script src="aframe/aframe.min.js"> </script>
 	<a-scene>
-		<a-sky color="#167fd0"></a-sky>
-		<a-torus position="-2 1 -5" color="green" radius="1.2"></a-torus>
+		<a-sky color="#167fd0" animation="property: components.material.material.color;
+type: color; from: black; to: white; loop: true; dur: 8000"></a-sky>
+		<a-torus animation="property: position; to: 1 8 -10; dur: 2000; easing: linear; loop: true" position="-2 1 -5" color="green" radius="1.2"></a-torus>
 		<a-plane width="7" height="7" rotation="-55 0 0" position="-2 -2 -5" color="purple"></a-plane>
 		<a-cylinder color="yellow" height="1.9" radius="0.05" position="-2 -1 -5"></a-cylinder>
 		<a-cylinder color="yellow" height="1.9" radius="0.05" position="-3 -1 -5"></a-cylinder>
 		<a-torus-knot position="-3 1 -5" color="orange" radius="1.2" radius-tubular="0.15" p="2" q="7"></a-torus>
 		<a-plane width="9" weight="2" position="6.5 1 -7"></a-plane>
-		<a-text color="black" width="10" position="2.5 1 -6" value="Вітаємо у віртуальній реальності!" font="Segoe_Script_Bold-msdf.json" negate="false"></a-text>
+		<a-text animation="property: rotation; to: 360 0 0; loop: true; dur: 4000" color="black" width="10" position="2.5 1 -6" value="Вітаємо у віртуальній реальності!" font="Segoe_Script_Bold-msdf.json" negate="false"></a-text>
 	</a-scene>
 </html>
