@@ -2,6 +2,7 @@
 <html>
 <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
 <script>
 AFRAME.registerComponent('hello-world', {
 init: function () {
@@ -12,7 +13,7 @@ console.log('Hello, World!!!');
 		<a-scene embedded arjs>
 			<a-marker preset="hiro">
 				<a-box position="0 0 0" material="color: red"></a-box>
-				<a-entity hello-world></a-entity>
+				<a-entity position="0 0 1" particle-system="preset: snow; size: 10"></a-entity>
 			</a-marker>
 			<a-marker preset="kanji">
 				<a-entity geometry="primitive: box; height: 1; width: 1; depth: 1" position="0 0 0" material="color: blue"></a-entity>
