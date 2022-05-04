@@ -62,12 +62,12 @@
 	</script>
 
 	<a-scene>
-		<a-sky src="stars.jpg"></a-sky>
+		<a-sky "color: black" radius="5000"></a-sky>
 		<a-camera position="0 0 900" cursor-visible="true" cursorscale="2" cursor-color="#0095DD" cursor-opacity="0.5">
 		</a-camera>
 
 		<a-entity geometry="primitive: sphere; radius: 20.510"
-			material="src: stars.jpg" planet="dist: 0; mass: 1.989e30; name: Sun">
+			src="stars.jpg" planet="dist: 0; mass: 1.989e30; name: Sun">
 		</a-entity>
 
 		<a-entity geometry="primitive: sphere; radius: 2.4397"
