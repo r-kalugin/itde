@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Сатурн</title>
+		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+	</head>
+	<body>
+		<a-scene>
+			<a-sky color="black"></a-sky>
+			<a-assets><img id="earth" src="https://ucarecdn.com/0f899a89-9fbd-411c-bce2-4c18558c228b/" crossorigin="anonymous"></a-assets>
+			<a-camera position="0 30 250" cursor-visible="true" cursorscale="2" cursor-color="#0095DD" cursor-opacity="0.5" rotation="0 0 0"></a-camera>
+			<a-entity rotation="0 0 27" position="0 0 0">
+    			<a-sphere radius="60" src="#earth" roughness="0.6" segments-height="100" animation="property: rotation; easing: linear; to: 0 360 0; loop: true; dur: 10000">
+   				</a-sphere>
+   				<a-ring color="black" radius-inner="67" radius-outer="74,5"  segments-theta="100" rotation="90 0 0" side="double"></a-ring>
+   				<a-ring color="#49403B" radius-inner="74,5" radius-outer="92" segments-theta="100" rotation="90 0 0" side="double"></a-ring>
+   				<a-ring color="#D4BEA2" radius-inner="92" radius-outer="117,580" segments-theta="100" rotation="90 0 0" side="double"></a-ring>
+   				<a-ring color="#1B0A20" radius-inner="117,580" radius-outer="122" segments-theta="100" rotation="90 0 0" side="double"></a-ring>
+   				<a-ring color="#978672" radius-inner="122,170" radius-outer="136,775" segments-theta="100" rotation="90 0 0" side="double"></a-ring>
+				<a-entity light="type: point; intensity: 1; distance: 1000; decay: 0" position="0 300 400"></a-entity>
+  			</a-entity>
+		</a-scene>
+	</body>
+</html>
