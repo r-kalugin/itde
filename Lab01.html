@@ -9,7 +9,7 @@
 	<body>
 		<a-scene vr-mode-ui="enabled: false" embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 			<a-assets><img id="saturn" src="texture.jpg" crossorigin="anonymous"></a-assets>
-			<a-camera position="0 30 500" cursor-visible="true" cursorscale="2" cursor-color="#0095DD" cursor-opacity="0.5" rotation="0 0 0"></a-camera>
+			<a-camera position="0 30 100" cursor-visible="true" cursorscale="2" cursor-color="#0095DD" cursor-opacity="0.5" rotation="0 0 0"></a-camera>
 			<a-marker type='pattern' url='Saturn.patt'>
 				<a-entity rotation="0 0 27" position="0 0 0">
     					<a-sphere radius="60" src="#saturn" roughness="0.6" segments-height="100" animation="property: rotation; easing: linear; to: 0 360 0; loop: true; dur: 10000"></a-sphere>
