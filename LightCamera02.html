@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head><title>LightCamera</title></head>
+	<body>
+	 	<canvas id="Canvas"></canvas>
+		<script src="three.js-dev/build/three.js"></script>
+		<script>
+	 		var renderer = new THREE.WebGLRenderer({canvas: document.getElementById('Canvas'), antialias: true});
+	 		renderer.setClearColor(0x333333);
+	 		renderer.setPixelRatio(window.devicePixelRatio);
+	 		renderer.setSize(window.innerWidth, window.innerHeight);
+	 		renderer.shadowMap.enabled = true;
+			renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+			
+	 		//перспективна камера
+	 		var camera=new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 2000);
+		 	camera.position.z = 500;
+
+	 		//ортографічна камера
+			//var camera=new THREE.OrthographicCamera(-300, 300, 200, -200, 0.1, 2000);
+			
+
+
+	 		var scene = new THREE.Scene();
+
+			var secondCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 20000);
+			var cameraHelper = new THREE.CameraHelper(secondCamera);
+			scene.add(cameraHelper);
+
+			var conegeometry = new THREE.CylinderGeometry(100,200,100,500);
+			var conematerial = new THREE.MeshLambertMaterial();
+	 		var conemesh = new THREE.Mesh(conegeometry, conematerial);
+	 		conemesh.position.set(-150, -50, -500);
+	 		conemesh.rotation.x = -100;
+	 		scene.add(conemesh);
+
+	 		var boxgeometry = new THREE.BoxGeometry(90, 100, 90, 200);
+	 		var boxmaterial = new THREE.MeshLambertMaterial();
+	 		var boxmesh = new THREE.Mesh(boxgeometry, boxmaterial);
+	 		boxmesh.position.set(200, -50, -500);
+	 		boxmesh.rotation.x = -100;
+	 		scene.add(boxmesh);
+	 		
+	 		var planegeometry = new THREE.PlaneGeometry(900, 500, 300, 900);
+	 		var planematerial = new THREE.MeshPhongMaterial(
+				 {color: 0x333333});
+	 		var planemesh = new THREE.Mesh(planegeometry, planematerial);
+			planemesh.position.set(50, -70, -500);
+	 		planemesh.rotation.set(-290, 0, 0);
+	 		scene.add(planemesh);
+	 		
+	 		//рівномірне освітлення
+	 		/*var lightOne = new THREE.AmbientLight(0xfffff, 1);
+	 		lightOne.position.z = 300;
+	 		scene.add(lightOne);*/
+	 		
+	 		//точкове освітлення
+			/*var lightOne = new THREE.PointLight(0xfffff, 0.5);
+			scene.add(lightOne);*/
+			//хелпер
+			/*var lightHelper=new THREE.PointLightHelper(lightOne, 40);
+			scene.add(lightHelper);*/
+
+			//напрямлене освітлення
+			var lightOne = new THREE.DirectionalLight(0xffff, 0.5, 1000);
+			lightOne.target = conemesh;
+			scene.add(lightOne);
+			var lightHelper=new THREE.DirectionalLightHelper(lightOne, 100);
+			scene.add(lightHelper);
+
+			//прожекторне освітлення
+			/*var lightOne = new THREE.SpotLight(0xfffff, 0.5, 1000);
+			lightOne.target = conemesh;
+			scene.add(lightOne);*/
+
+			//напівсферичне освітлення
+			/*var lightOne = new THREE.HemisphereLight("yellow", "blue", 1);
+			scene.add(lightOne);*/
+
+			//відкидання тіней
+			/*var lightOne = new THREE.SpotLight(0xfffff, 2.0, 3000);
+			lightOne.position.x = 50;
+			lightOne.target = conemesh;
+			scene.add(lightOne);
+			lightOne.castShadow = true;
+			conemesh.castShadow = true;
+			boxmesh.castShadow = true;
+			planemesh.receiveShadow = true;
+			const helper = new THREE.CameraHelper(lightOne.shadow.camera);
+			scene.add(helper);*/
+
+
+			requestAnimationFrame(render);
+	 		
+	 		var t=0;
+			function render() {
+				//Зміна позиції точкового джерела світла
+				lightOne.position.y=300*Math.sin(t);
+				lightOne.position.z=300*Math.cos(t);
+				t+=0.01;
+				camera.lookAt(lightOne.position);
+				camera.position.x = Math.sin(t)*2000;
+				camera.position.z = Math.cos(t)*2000;
+				lightHelper.update();
+				renderer.render(scene, camera);
+				requestAnimationFrame(render);
+			}
+
+			//Ефект зміни освітлюваного об’єкту за допомогою опрацювання натискання кнопок миші
+			/*function changeTarget(){
+				if(lightOne.target == conemesh)
+					lightOne.target = boxmesh;
+				else
+					lightOne.target = conemesh;
+				requestAnimationFrame(render);
+			}
+			document.getElementById("Canvas").onclick = changeTarget;*/
+		</script>
+ 	</body>
+</html>
