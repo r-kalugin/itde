@@ -28,20 +28,20 @@
 				}
 			});
 			scene.add(meshone);
-			meshone.position.set(0,-50,-150);
+			meshone.position.set(-30,-50,-150);
 		});
 	
-		/*var objLoaderOne = new THREE.OBJLoader();
-		objLoader.load("male02.obj", function(mesh){
-			mesh.traverse(function(node){
+		var objLoaderTwo = new THREE.OBJLoader();
+		objLoader.load("male02.obj", function(meshtwo){
+			meshtwo.traverse(function(node){
 				if(node instanceof THREE.Mesh){
 					node.castShadow = true;
 					node.receiveShadow = true;
 				}
 			});
-			scene.add(mesh);
-			mesh.position.set(0,-50,-150);
-		});*/
+			scene.add(meshtwo);
+			meshtwo.position.set(30,-50,-150);
+		});
 		
 		requestAnimationFrame(render);
 	
