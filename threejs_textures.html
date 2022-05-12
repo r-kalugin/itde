@@ -2,8 +2,8 @@
 <html>
 	<head><title>OrbitControls</title></head>
 	<body>
-		<script src="three.min.js"></script>
-		<script src="OrbitControls.js"></script>
+		<script src="js/three.min.js"></script>
+		<script src="js/OrbitControls.js"></script>
 <script>
 	function init() {
 		scene = new THREE.Scene(); //сцена (глобальна змінна) для додаваня об'єктів, джерел світла, камер
@@ -31,8 +31,11 @@
 		light.position.set(-100, 200, 100);
 		scene.add(light);
 
+		var loader = new THREE.TextureLoader(); // створити об'єкт класу TextureLoader
+
 		var cylgeometry = new THREE.CylinderGeometry(3, 3, 7, 7);
-		var cylmaterial = new THREE.MeshLambertMaterial();
+		//var cylmaterial = new THREE.MeshLambertMaterial();
+		var cylmaterial = new THREE.MeshLambertMaterial({map: loader.load('https://farm1.staticflickr.com/854/42936929215_efa87c8a9a_b.jpg')});
 		var cylmesh = new THREE.Mesh(cylgeometry, cylmaterial);
 		cylmesh.position.set(0.9, -5, -6);
 		scene.add(cylmesh);
