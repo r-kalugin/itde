@@ -15,9 +15,9 @@
 		renderer.setSize(WIDTH, HEIGHT);
 		document.body.appendChild(renderer.domElement); //додавання холсту до тіла документа
 
-		camera = new THREE.PerspectiveCamera(45, WIDTH/ HEIGHT, 0.1, 20000); //перспективна камера
+		camera = new THREE.PerspectiveCamera(35, WIDTH/ HEIGHT, 0.1, 20000); //перспективна камера
 		//45-кут огляду, співвідношення сторін об'єктиву, область видимості (ближня і дальня межі)
-		camera.position.set(0, 6, 0);
+		camera.position.set(0, 0, 300);
 		scene.add(camera);
 
 		window.addEventListener('resize', function() {//обробник події при зміні розмірів вікна
@@ -27,10 +27,9 @@
 			camera.updateProjectMatrix();
 		});
 
-		renderer.setClearColor(0x333F47, 1); //колір фону
+		renderer.setClearColor(0xCBEFFF, 1); //колір фону
 
 		var light = new THREE.PointLight(0xffffff);
-		light.position.set(-100, 200, 100);
 		scene.add(light);
 
 		var objLoaderOne = new THREE.OBJLoader();
@@ -43,6 +42,18 @@
 			});
 			scene.add(meshone);
 			meshone.position.set(-50,-50,-150);
+		});
+	
+		var objLoaderTwo = new THREE.OBJLoader();
+		objLoaderTwo.load("tree.obj", function(meshtwo){
+			meshtwo.traverse(function(node){
+				if(node instanceof THREE.Mesh){
+					node.castShadow = true;
+					node.receiveShadow = true;
+				}
+			});
+			scene.add(meshtwo);
+			meshtwo.position.set(50,-50,-150);
 		});
 
 		controls = new THREE.OrbitControls(camera,renderer.domElement); //спосіб зміни координат камери
