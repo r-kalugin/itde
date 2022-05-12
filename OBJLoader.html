@@ -21,7 +21,7 @@
 
 		var objLoaderOne = new THREE.OBJLoader();
 		objLoaderOne.load("male02.obj", function(meshone){
-			mesh.traverse(function(node){
+			meshone.traverse(function(node){
 				if(node instanceof THREE.Mesh){
 					node.castShadow = true;
 					node.receiveShadow = true;
