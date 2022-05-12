@@ -32,7 +32,7 @@
 		});
 	
 		var objLoaderTwo = new THREE.OBJLoader();
-		objLoaderTwo.load("male02.obj", function(meshtwo){
+		objLoaderTwo.load("tree.obj", function(meshtwo){
 			meshtwo.traverse(function(node){
 				if(node instanceof THREE.Mesh){
 					node.castShadow = true;
@@ -42,10 +42,6 @@
 			scene.add(meshtwo);
 			meshtwo.position.set(50,-50,-150);
 		});
-	
-		var manager = new THREE.LoadingManager(objLoaderTwo);
-		var textureLoader = new THREE.TextureLoader(manager);
-		var texture = textureLoader.load('male-02-1noCulling.JPG');
 		
 		requestAnimationFrame(render);
 	
