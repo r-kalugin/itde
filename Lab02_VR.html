@@ -19,8 +19,9 @@
 
 		var lightTwo=new THREE.PointLight(0xffff, 0.5);
 		scene.add(lightTwo);
-
+		
 		var spheregeometry=new THREE.SphereGeometry(60, 32, 32);
+		var loader = new THREE.TextureLoader();
 		var spherematerial = new THREE.MeshLambertMaterial({map: loader.load('texture.jpg')});
 		var spheremesh=new THREE.Mesh(spheregeometry, spherematerial);
 		spheremesh.position.set(0, 0, 0);
