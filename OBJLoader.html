@@ -32,7 +32,7 @@
 		});
 	
 		var objLoaderTwo = new THREE.OBJLoader();
-		objLoader.load("male02.obj", function(meshtwo){
+		objLoaderTwo.load("male02.obj", function(meshtwo){
 			meshtwo.traverse(function(node){
 				if(node instanceof THREE.Mesh){
 					node.castShadow = true;
