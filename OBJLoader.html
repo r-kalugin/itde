@@ -19,7 +19,19 @@
 		var light = new THREE.PointLight(0xffffff);
 		scene.add(light);
 
-		var objLoader = new THREE.OBJLoader();
+		var objLoaderOne = new THREE.OBJLoader();
+		objLoaderOne.load("male02.obj", function(meshone){
+			mesh.traverse(function(node){
+				if(node instanceof THREE.Mesh){
+					node.castShadow = true;
+					node.receiveShadow = true;
+				}
+			});
+			scene.add(meshone);
+			meshone.position.set(0,-50,-150);
+		});
+	
+		/*var objLoaderOne = new THREE.OBJLoader();
 		objLoader.load("male02.obj", function(mesh){
 			mesh.traverse(function(node){
 				if(node instanceof THREE.Mesh){
@@ -29,7 +41,7 @@
 			});
 			scene.add(mesh);
 			mesh.position.set(0,-50,-150);
-		});
+		});*/
 		
 		requestAnimationFrame(render);
 	
