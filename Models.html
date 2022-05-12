@@ -45,7 +45,7 @@
 		});
 	
 		var objLoaderTwo = new THREE.OBJLoader();
-		objLoaderTwo.load("tree.obj", function(meshtwo){
+		objLoaderTwo.load("dog.obj", function(meshtwo){
 			meshtwo.traverse(function(node){
 				if(node instanceof THREE.Mesh){
 					node.castShadow = true;
