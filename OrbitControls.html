@@ -6,25 +6,26 @@
 		<script src="OrbitControls.js"></script>
 <script>
 	function init() {
-		scene = new THREE.Scene();
+		scene = new THREE.Scene(); //сцена (глобальна змінна) для додаваня об'єктів, джерел світла, камер
 		var WIDTH = window.innerWidth, HEIGHT = window.innerHeight;
 
 		renderer = new THREE.WebGLRenderer({antialias: true});
 		renderer.setSize(WIDTH, HEIGHT);
-		document.body.appendChild(renderer.domElement);
+		document.body.appendChild(renderer.domElement); //додавання холсту до тіла документа
 
-		camera = new THREE.PerspectiveCamera(45, WIDTH/ HEIGHT, 0.1, 20000);
+		camera = new THREE.PerspectiveCamera(45, WIDTH/ HEIGHT, 0.1, 20000); //перспективна камера
+		//45-кут огляду, співвідношення сторін об'єктиву, область видимості (ближня і дальня межі)
 		camera.position.set(0, 6, 0);
 		scene.add(camera);
 
-		window.addEventListener('resize', function() {
+		window.addEventListener('resize', function() {//обробник події при зміні розмірів вікна
 			var WIDTH = window.innerWidth, HEIGHT = window.innerHeight;
-			renderer.setSize(WIDTH, HEIGHT);
-			camera.aspect = WIDTH / HEIGHT;
+			renderer.setSize(WIDTH, HEIGHT); //розтягування холсту до розмірів вікна
+			camera.aspect = WIDTH / HEIGHT; //встановлення нового співвідношення сторін об'єктиву
 			camera.updateProjectMatrix();
 		});
 
-		renderer.setClearColor(0x333F47, 1);
+		renderer.setClearColor(0x333F47, 1); //колір фону
 
 		var light = new THREE.PointLight(0xffffff);
 		light.position.set(-100, 200, 100);
@@ -36,13 +37,13 @@
 		cylmesh.position.set(0.9, -5, -6);
 		scene.add(cylmesh);
 
-		controls = new THREE.OrbitControls(camera,renderer.domElement);
+		controls = new THREE.OrbitControls(camera,renderer.domElement); //спосіб зміни координат камери
 		}
 
 		function animate()
 		{
 			controls.update();
-			renderer.render(scene, camera);
+			renderer.render(scene, camera); //відображення сцени за допомогою камери 3D -> 2D
 			requestAnimationFrame(animate);
 		}
 
