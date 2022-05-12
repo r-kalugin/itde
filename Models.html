@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-	<head><title>OrbitControls+Textures</title></head>
+	<head><title>Models</title></head>
 	<body>
 		<script src="three.min.js"></script>
 		<script src="OrbitControls.js"></script>
-    <script src="OBJLoader.js"></script>
+    		<script src="OBJLoader.js"></script>
     
 <script>
 	function init() {
@@ -29,8 +29,12 @@
 
 		renderer.setClearColor(0xCBEFFF, 1); //колір фону
 
-		var light = new THREE.PointLight(0xffffff);
-		scene.add(light);
+		var lightOne = new THREE.AmbientLight(0xffffff);
+		scene.add(lightOne);
+		
+		var lightTwo = new THREE.PointLight(0xffffff);
+		lightTwo.position.set(-100, 200, 100);
+		scene.add(lightTwo);
 
 		var objLoaderOne = new THREE.OBJLoader();
 		objLoaderOne.load("male02.obj", function(meshone){
