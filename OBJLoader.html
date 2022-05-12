@@ -2,24 +2,18 @@
 <html>
 	<head><title>Model</title></head>
 	<body>
+		<canvas id="canvas"></canvas>
 		<script src="three.min.js"></script>
-		<script src="OrbitControls.js"></script>
 		<script src="OBJLoader.js"></script>
 <script>
-	function init() {
-		scene = new THREE.Scene(); //сцена (глобальна змінна) для додаваня об'єктів, джерел світла, камер
-		var WIDTH = window.innerWidth, HEIGHT = window.innerHeight;
-
-		renderer = new THREE.WebGLRenderer({antialias: true});
-		renderer.setSize(WIDTH, HEIGHT);
-		document.body.appendChild(renderer.domElement); //додавання холсту до тіла документа
-
-		camera = new THREE.PerspectiveCamera(45, WIDTH/ HEIGHT, 0.1, 20000); //перспективна камера
-		//45-кут огляду, співвідношення сторін об'єктиву, область видимості (ближня і дальня межі)
-		camera.position.set(0, 0, 0);
-		scene.add(camera);
-
-		renderer.setClearColor("#9ee6ff", 1); //колір фону
+		var renderer = new THREE.WebGLRenderer({canvas: document.getElementById('Canvas'), antialias: true});
+		renderer.setClearColor(0xCBEFFF);
+        	renderer.setPixelRatio( window.devicePixelRatio )
+       		renderer.setSize( window.innerWidth, window.innerHeight );
+	
+		var camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 0.1, 20000 );
+		
+		var scene = new THREE.Scene();
 
 		var light = new THREE.PointLight(0xffffff);
 		scene.add(light);
@@ -32,19 +26,18 @@
 					node.receiveShadow = true;
 				}
 			});
+			scene.add(mesh);
+			mesh.position.set(-80,-50,-150);
+			mesh.rotation.y=-Math.PI/4;
 		});
-		scene.add(mesh);
-	}
-
-		function animate()
+		
+		requestAnimationFrame(render);
+	
+		function render()
 		{
-			controls.update();
-			renderer.render(scene, camera); //відображення сцени за допомогою камери 3D -> 2D
-			requestAnimationFrame(animate);
+			renderer.render(scene, camera);
+			requestAnimationFrame(render);
 		}
-
-	init();
-	animate();
 </script>
 	</body>
 </html>
