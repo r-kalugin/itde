@@ -8,7 +8,7 @@
 	<script>
 	const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 3000 );
-        camera.position.y = 0;
+        camera.position.y = -30;
         camera.position.z = 500;
             
         const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('Canvas'), antialias: true});
