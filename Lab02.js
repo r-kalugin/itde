@@ -18,7 +18,7 @@ function init_three()
 		loader = new THREE.TextureLoader();
 		spherematerial = new THREE.MeshBasicMaterial({map: loader.load('texture.jpg')});
 		spheremesh=new THREE.Mesh(spheregeometry, spherematerial);
-		spheremesh.position.set(Math.PI, 0, 0);
+		spheremesh.position.set(0, 0, 0);
 		spheremesh.rotation.set(-Math.PI/2, 0, 0);
 
 		ring1geometry = new THREE.RingGeometry(0.67, 0.745, 50);
