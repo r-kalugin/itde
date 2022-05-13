@@ -12,7 +12,7 @@
         camera.position.z = 500;
             
         const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('Canvas'), antialias: true});
-        renderer.setClearColor(0xCBEFFF);
+        renderer.setClearColor("black");
         renderer.setPixelRatio( window.devicePixelRatio )
         renderer.setSize( window.innerWidth, window.innerHeight );
         document.body.appendChild( renderer.domElement );
@@ -22,7 +22,7 @@
 		
 		var spheregeometry=new THREE.SphereGeometry(60, 32, 32);
 		var loader = new THREE.TextureLoader();
-		var spherematerial = new THREE.MeshLambertMaterial({map: loader.load('texture.jpg')});
+		var spherematerial = new THREE.MeshBasicMaterial({map: loader.load('texture.jpg')});
 		var spheremesh=new THREE.Mesh(spheregeometry, spherematerial);
 		spheremesh.position.set(0, 0, 0);
 
