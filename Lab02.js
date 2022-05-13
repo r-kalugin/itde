@@ -21,7 +21,7 @@ function init_three()
 		spheremesh.position.set(Math.PI, 0, 0);
 		spheremesh.rotation.set(-Math.PI/2, 0, 0);
 
-		ring1geometry = new THREE.RingGeometry(67, 74.5, 50);
+		ring1geometry = new THREE.RingGeometry(6.7, 7.45, 5.0);
 		ring1material = new THREE.MeshBasicMaterial({color: "black", side: THREE.DoubleSide});
 		ring1mesh = new THREE.Mesh(ring1geometry, ring1material);
 		ring1mesh.rotation.set(0, 0, 0);
