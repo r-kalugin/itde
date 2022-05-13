@@ -74,11 +74,11 @@
 		group.rotation.z = 27*Math.PI/180;
 
 		controls = new THREE.OrbitControls(camera,renderer.domElement); //спосіб зміни координат камери
+		spheremesh.rotation.y += 0.01;
 	}
 
 	function animate()
 	{
-    spheremesh.rotation.y += 0.01;
 		controls.update();
 		renderer.render(scene, camera); //відображення сцени за допомогою камери 3D -> 2D
 		requestAnimationFrame(animate);
