@@ -77,9 +77,8 @@
 		//spheremesh.rotation.y += 0.01;
 	}
 
-	function animate(spheremesh)
+	function animate()
 	{
-		spheremesh.rotation.y += 0.01;
 		controls.update();
 		renderer.render(scene, camera); //відображення сцени за допомогою камери 3D -> 2D
 		requestAnimationFrame(animate);
