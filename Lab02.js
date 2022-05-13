@@ -90,7 +90,7 @@ function initARContext()
 
 	arMarkerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
 		type: 'pattern',
-		patternUrl: 'https://raw.githack.com/AR-js-org/AR.js/master/data/data/patt.hiro',
+		patternUrl: 'mysaturn.patt',
 		changeMatrixMode: 'cameraTransformMatrix'
 	})
 
@@ -112,7 +112,7 @@ function onReady()
 
 function init_ar()
 {
-	arToolkitSource = new THREEx.ArToolkitSource({sourceType: 'webcam', sourceWidth: 640, sourceHeight: 480})
+	arToolkitSource = new THREEx.ArToolkitSource({sourceType: 'webcam', sourceWidth: window.innerWidth, sourceHeight: window.innerHeight})
 
 	arToolkitSource.init(onReady);
 
