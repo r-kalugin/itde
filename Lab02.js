@@ -60,14 +60,14 @@ function init_three()
 	requestAnimationFrame(animate);
 }
 
-function onResize() 
+/*function onResize() 
 {
 	arToolkitSource.onResizeElement()
 	arToolkitSource.copyElementSizeTo(renderer.domElement)
 	if (window.arToolkitContext.arController !== null) {
 		arToolkitSource.copyElementSizeTo(window.arToolkitContext.arController.canvas)
 	}
-}
+}*/
 
 
 function initARContext() 
