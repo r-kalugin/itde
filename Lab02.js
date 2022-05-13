@@ -11,7 +11,7 @@ function init_three()
 	scene = new THREE.Scene();
 	// Create a camera
 	camera = new THREE.Camera();
-	camera.posirion.z=500;
+	camera.position.z=500;
 	scene.add(camera);
 
 	spheregeometry=new THREE.SphereGeometry(60, 64, 32);
