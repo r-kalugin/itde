@@ -17,7 +17,6 @@
 		camera = new THREE.PerspectiveCamera(45, WIDTH/ HEIGHT, 0.1, 3000); //перспективна камера
 		//45-кут огляду, співвідношення сторін об'єктиву, область видимості (ближня і дальня межі)
     		camera.position.z = 500;
-		camera.rotation.y = Math.PI/6;
 		scene.add(camera);
 
 		window.addEventListener('resize', function() {//обробник події при зміні розмірів вікна
@@ -72,7 +71,8 @@
 		group.add(ring4mesh);
 		group.add(ring5mesh);
 		scene.add(group);
-		group.rotation.z = 27*Math.PI/180;
+		group.rotation.z = 27*Math.PI/180; //для нахилу осі
+		group.rotation.x = Math.PI/16; //для видимості кілець
 
 		controls = new THREE.OrbitControls(camera,renderer.domElement); //спосіб зміни координат камери
 	}
