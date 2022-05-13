@@ -18,31 +18,32 @@ function init_three()
 		spherematerial = new THREE.MeshBasicMaterial({map: loader.load('texture.jpg')});
 		spheremesh=new THREE.Mesh(spheregeometry, spherematerial);
 		spheremesh.position.set(0, 0, 0);
+		spheremesh.rotation.set(-Math.PI/2, 0, 0);
 
 		ring1geometry = new THREE.RingGeometry(67, 74.5, 50);
 		ring1material = new THREE.MeshBasicMaterial({color: "black", side: THREE.DoubleSide});
 		ring1mesh = new THREE.Mesh(ring1geometry, ring1material);
-		ring1mesh.rotation.set(Math.PI/2, 0, 0);
+		ring1mesh.rotation.set(0, 0, 0);
 
 		ring2geometry = new THREE.RingGeometry(74.5, 92, 50);
 		ring2material = new THREE.MeshBasicMaterial({color: "#49403B", side: THREE.DoubleSide});
 		ring2mesh = new THREE.Mesh(ring2geometry, ring2material);
-		ring2mesh.rotation.set(Math.PI/2, 0, 0);
+		ring2mesh.rotation.set(0, 0, 0);
 
 		ring3geometry = new THREE.RingGeometry(92, 117.580, 50);
 		ring3material = new THREE.MeshBasicMaterial({color: "#D4BEA2", side: THREE.DoubleSide});
 		ring3mesh = new THREE.Mesh(ring3geometry, ring3material);
-		ring3mesh.rotation.set(Math.PI/2, 0, 0);
+		ring3mesh.rotation.set(0, 0, 0);
 
 		ring4geometry = new THREE.RingGeometry(117.580, 122, 50);
 		ring4material = new THREE.MeshBasicMaterial({color: "#1B0A20", side: THREE.DoubleSide});
 		ring4mesh = new THREE.Mesh(ring4geometry, ring4material);
-		ring4mesh.rotation.set(Math.PI/2, 0, 0);
+		ring4mesh.rotation.set(0, 0, 0);
 
 		ring5geometry = new THREE.RingGeometry(122.170, 136.775, 50);
 		ring5material = new THREE.MeshBasicMaterial({color: "#978672", side: THREE.DoubleSide});
 		ring5mesh = new THREE.Mesh(ring5geometry, ring5material);
-		ring5mesh.rotation.set(Math.PI/2, 0, 0);
+		ring5mesh.rotation.set(0, 0, 0);
 
 		group = new THREE.Group();
 		group.add(spheremesh);
