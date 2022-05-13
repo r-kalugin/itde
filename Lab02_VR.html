@@ -17,8 +17,9 @@
         renderer.setSize( window.innerWidth, window.innerHeight );
         document.body.appendChild( renderer.domElement );
 
-		var lightTwo=new THREE.PointLight(0xffff, 0.5);
-		scene.add(lightTwo);
+		var light=new THREE.PointLight(0xffff, 0.5);
+		light.position.set(0, 300, 400);
+		scene.add(light);
 		
 		var spheregeometry=new THREE.SphereGeometry(60, 32, 32);
 		var loader = new THREE.TextureLoader();
