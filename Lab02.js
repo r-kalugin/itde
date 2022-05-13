@@ -11,13 +11,14 @@ function init_three()
 	scene = new THREE.Scene();
 	// Create a camera
 	camera = new THREE.Camera();
+	camera.posirion.z=500;
 	scene.add(camera);
 
 	spheregeometry=new THREE.SphereGeometry(60, 64, 32);
 		loader = new THREE.TextureLoader();
 		spherematerial = new THREE.MeshBasicMaterial({map: loader.load('texture.jpg')});
 		spheremesh=new THREE.Mesh(spheregeometry, spherematerial);
-		spheremesh.position.set(0, 0, 0);
+		spheremesh.position.set(Math.PI, 0, 0);
 		spheremesh.rotation.set(-Math.PI/2, 0, 0);
 
 		ring1geometry = new THREE.RingGeometry(67, 74.5, 50);
