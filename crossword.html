@@ -1,0 +1,57 @@
+<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+<style>
+  .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
+</style>
+
+<body style="margin : 0px; overflow: hidden;">
+  <!-- minimal loader shown until image descriptors are loaded -->
+  <div class="arjs-loader">
+    <div>Будь-ласка, зачекайте...</div>
+  </div>
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+  >
+    <a-assets><img id="saturn" src="texture.jpg" crossorigin="anonymous"></a-assets>
+    <!-- we use cors proxy to avoid cross-origin problems -->
+    <a-nft
+      type="nft"
+      url="https://raw.githubusercontent.com/r-kalugin/itde/main/32y"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+	<a-entity rotation="90 0 27" position="400 250 -100">
+    		<a-sphere radius="60" src="#saturn" roughness="0.6" segments-height="100" animation="property: rotation; easing: linear; to: 0 360 0; loop: true; dur: 10000"></a-sphere>
+   		<a-ring color="black" radius-inner="67" radius-outer="74,5"  segments-theta="100" rotation="90 0 0" side="double"></a-ring>
+   		<a-ring color="#49403B" radius-inner="74,5" radius-outer="92" segments-theta="100" rotation="90 0 0" side="double"></a-ring>
+   		<a-ring color="#D4BEA2" radius-inner="92" radius-outer="117,580" segments-theta="100" rotation="90 0 0" side="double"></a-ring>
+   		<a-ring color="#1B0A20" radius-inner="117,580" radius-outer="122" segments-theta="100" rotation="90 0 0" side="double"></a-ring>
+   		<a-ring color="#978672" radius-inner="122,170" radius-outer="136,775" segments-theta="100" rotation="90 0 0" side="double"></a-ring>
+  	</a-entity>
+    </a-nft>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
